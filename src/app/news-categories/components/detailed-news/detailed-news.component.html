@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{data?.title}}</h2>
+
+<mat-dialog-content *ngIf="!commentsView" class="mat-typography">
+  <h5>Published on: {{data?.published_date}}</h5>
+  <div class="image-container" *ngIf="data?.multimedia && data.multimedia[0] && data.multimedia[0].type==='image'">
+    <img [src]="data.multimedia[0].url">
+    <h6>{{data.multimedia[0].caption}}</h6>
+  </div>
+  <p>{{data?.abstract}}</p>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="commentsView" class="mat-typography">
+  <news-comments [url]="data.url"></news-comments>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button *ngIf="!commentsView" (click)="commentsView=true">View Comments</button>
+  <button mat-button *ngIf="commentsView" (click)="commentsView=false">Close Comments</button>
+</mat-dialog-actions>

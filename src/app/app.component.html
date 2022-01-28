@@ -1,2 +1,16 @@
+<mat-toolbar color="primary">
+    <span>NY Times Top Stories</span>
+    <div *ngIf="currentUser && currentUser.email">
+        <span class="email-container">{{currentUser?.email}}</span>
+        <span class="logout-button" (click)="logout()">Logout</span>
+    </div>
+</mat-toolbar>
 
-<router-outlet></router-outlet>
+<div *ngIf="isLoading | async" class="loading-container">
+    <mat-progress-spinner [diameter]="40" color="primary" mode="indeterminate">
+    </mat-progress-spinner>
+</div>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

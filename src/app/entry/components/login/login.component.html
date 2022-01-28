@@ -1,0 +1,27 @@
+<div class="entry-wrapper">
+    <div class="outline">
+        <h3>Login to news center</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" />
+                <mat-error *ngIf="submitted && f['email']['errors'] && f['email']['errors']['required']">email
+                    is required</mat-error>
+                <mat-error *ngIf="submitted && f['email']['errors'] && f['email']['errors']['email']">Not a valid mail
+                    id</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label for="password">Password</mat-label>
+                <input matInput type="password" formControlName="password" />
+                <mat-error *ngIf="submitted && f['password']['errors'] && f['password']['errors']['required']">Password
+                    is required</mat-error>
+            </mat-form-field>
+            <div class="button-container">
+                <button mat-raised-button color="primary">
+                    Login
+                </button>
+                <a routerLink="/register">Register Now</a>
+            </div>
+        </form>
+    </div>
+</div>

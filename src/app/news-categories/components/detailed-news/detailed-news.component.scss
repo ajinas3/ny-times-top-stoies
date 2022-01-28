@@ -1,0 +1,14 @@
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        height: 250PX;
+        margin: 5px 0px;
+        width: 60%;
+    }
+    h6 {
+        font-size: 10px;
+        text-align: center;
+    }
+}

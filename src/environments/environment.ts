@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  authBaseUrl: 'http://localhost:8000/auth',
+  newsBaseUrl: 'https://api.nytimes.com/svc',
+  apiKey: '4azZci7OGlt0DlIBDxR259tUmnFcYP1T'
 };
 
 /*
