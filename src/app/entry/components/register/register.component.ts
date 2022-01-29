@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { AuthenticationService } from 'src/app/services';
+import { AuthenticationService } from '@core/services';
 
 @Component({
   selector: 'app-register',
@@ -20,12 +20,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService
-  ) {
-    // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/news-categories']);
-    }
-  }
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { COMMENTS } from 'src/app/constants';
-import { NewsService } from 'src/app/services';
-import { Comment } from 'src/app/models';
+import { COMMENTS } from '@core/constants';
+import { NewsService } from '@core/services';
+import { Comment } from '@core/models';
 
 @Component({
   selector: 'news-comments',
@@ -20,6 +20,7 @@ export class NewsCommentsComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     // not able to fetch data from API due to CORS issue
+
       // this.newsService.getComments(this.url, 0).subscribe({
       //   next: (data) => {
       //     console.log(data)

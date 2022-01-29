@@ -12,6 +12,7 @@
 <mat-dialog-content *ngIf="commentsView" class="mat-typography">
   <news-comments [url]="data.url"></news-comments>
 </mat-dialog-content>
+
 <mat-dialog-actions align="end">
   <button mat-button *ngIf="!commentsView" (click)="commentsView=true">View Comments</button>
   <button mat-button *ngIf="commentsView" (click)="commentsView=false">Close Comments</button>

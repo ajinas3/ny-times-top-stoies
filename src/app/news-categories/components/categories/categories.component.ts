@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsResponse } from '@core/models';
+import { NewsService } from '@core/services';
 import { Store } from '@ngrx/store';
-import { NewsResponse } from 'src/app/models';
-import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-categories',

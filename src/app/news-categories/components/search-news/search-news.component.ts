@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { NewsResponse, SearchResponse } from '@core/models';
+import { AuthenticationService, NewsService, SnackbarService } from '@core/services';
 import { Store } from '@ngrx/store';
-import { NewsResponse, SearchResponse } from 'src/app/models';
-import { AuthenticationService, NewsService, SnackbarService } from 'src/app/services';
 
 @Component({
   selector: 'search-news',
@@ -25,11 +25,11 @@ export class SearchNewsComponent implements OnInit {
     private newsService: NewsService,
     private authenticationService: AuthenticationService,
     private snackbarService: SnackbarService,
-    private store: Store<{news: NewsResponse}>) { }
+    private store: Store<{ news: NewsResponse }>) { }
 
   ngOnInit(): void {
     const savedHistory = localStorage.getItem(`${this.authenticationService.currentUserValue.email}_search_history`);
-    this.serachHistory = savedHistory ? JSON.parse(savedHistory): [];
+    this.serachHistory = savedHistory ? JSON.parse(savedHistory) : [];
     this.searchForm = this.formBuilder.group({
       searchText: ['']
     });
@@ -59,7 +59,7 @@ export class SearchNewsComponent implements OnInit {
             }
           })
         }
-        this.store.dispatch({type: 'Update', payload: this.searchedResults});
+        this.store.dispatch({ type: 'Update', payload: this.searchedResults });
       }
     });
   }
@@ -67,7 +67,7 @@ export class SearchNewsComponent implements OnInit {
   saveSearchedText(text: string) {
     const index = this.serachHistory.indexOf(text);
     if (index > -1) {
-      this.serachHistory.splice(index, 1); 
+      this.serachHistory.splice(index, 1);
     }
     this.serachHistory.unshift(text);
     if (this.serachHistory.length > 5) {

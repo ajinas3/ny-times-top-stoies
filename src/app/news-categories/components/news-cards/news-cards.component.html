@@ -1,11 +1,14 @@
 <div class="cards-container" *ngIf="data && data.results?.length">
-    <ng-container *ngFor="let news of data.results">
-        <mat-card *ngIf="news.title && news.abstract" (click)="showDetails(news)">
-            <mat-card-title>{{news.title}}</mat-card-title>
-            <mat-card-subtitle>{{news.published_date | date: 'fullDate'}}</mat-card-subtitle>
-            <mat-card-content>
-                <p>{{news.abstract}}</p>
-            </mat-card-content>
-        </mat-card>
-    </ng-container>
+
+  <ng-container *ngFor="let news of data.results">
+
+    <mat-card *ngIf="news.title && news.abstract" (click)="showDetails(news)">
+      <mat-card-title>{{news.title}}</mat-card-title>
+      <mat-card-subtitle>{{news.published_date | date: 'fullDate'}}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{news.abstract}}</p>
+      </mat-card-content>
+    </mat-card>
+
+  </ng-container>
 </div>

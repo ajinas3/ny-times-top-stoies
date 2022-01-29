@@ -1,37 +1,37 @@
 .loading-container {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.7);
-    z-index: 999999;
-    mat-progress-spinner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 999999;
+  mat-progress-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 mat-toolbar {
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    .email-container {
-        margin-right: 10px;
-        font-size: 14px;
-        font-style: italic;
-    }
-    .logout-button {
-        border: 1px solid;
-        font-size: 14px;
-        padding: 5px;
-        border-radius: 5px;
-    }
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  .email-container {
+    margin-right: 10px;
+    font-size: 14px;
+    font-style: italic;
+  }
+  .logout-button {
+    border: 1px solid;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+  }
 }
 
 .container {
-    height: calc( 100% - 60px);
+  height: calc( 100% - 60px);
 }

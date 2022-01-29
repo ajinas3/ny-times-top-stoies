@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { StoreModule } from '@ngrx/store';
-import { ApiAuthInterceptor } from './helpers';
-import { newsReducer } from './store';
+
+import { AppComponent } from './app.component';
+import { ApiAuthInterceptor } from '@core/helpers';
+import { newsReducer } from '@core/store';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { newsReducer } from './store';
       provide: HTTP_INTERCEPTORS,
       useClass: ApiAuthInterceptor,
       multi: true,
-   },
+    },
   ],
   bootstrap: [AppComponent]
 })

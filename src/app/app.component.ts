@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import { LoaderService, AuthenticationService } from '@core/services';
 import { Subject } from 'rxjs';
-import { User } from './models';
-import { AuthenticationService, LoaderService } from './services';
+import { User } from './core/models';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +17,9 @@ export class AppComponent {
 
   constructor(private loaderService: LoaderService,
     private authenticationService: AuthenticationService) {
-      this.authenticationService.currentUser.subscribe(user => {
-        this.currentUser = user;
-      })
+    this.authenticationService.currentUser.subscribe(user => {
+      this.currentUser = user;
+    })
   }
 
   logout() {

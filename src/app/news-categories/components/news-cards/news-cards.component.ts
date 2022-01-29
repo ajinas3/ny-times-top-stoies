@@ -1,9 +1,9 @@
-import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { News, NewsResponse } from '@core/models';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription, take } from 'rxjs';
-import { News, NewsResponse } from 'src/app/models';
-import { DetailedNewsComponent } from '../detailed-news/detailed-news.component';
+import { Observable, Subscription } from 'rxjs';
+import { DetailedNewsComponent } from '../detailed-news';
 
 @Component({
   selector: 'news-cards',
@@ -35,7 +35,7 @@ export class NewsCardsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.dataSubscription.unsubscribe();
+    this.dataSubscription.unsubscribe();
   }
 
 }
