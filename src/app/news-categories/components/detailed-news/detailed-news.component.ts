@@ -14,7 +14,6 @@ export class DetailedNewsComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: News) { }
 
   ngOnInit(): void {
-    console.log(this.data);
   }
 
 }

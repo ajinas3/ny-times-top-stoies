@@ -19,7 +19,7 @@ export interface NewsResponse {
     copyright: string;
     last_updated?: string;
     num_results?: number;
-    results: News[];
+    results?: News[];
     section?: string;
     status: string;
 }

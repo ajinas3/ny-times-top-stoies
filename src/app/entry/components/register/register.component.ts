@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit {
     this.authenticationService.register(this.f['email'].value, this.f['password'].value)
       .pipe(first()).subscribe({
         next: (data) => {
-          console.log(data);
           this.router.navigate(['/news-categories']);
         }
       });

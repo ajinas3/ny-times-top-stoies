@@ -8,7 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { StoreModule } from '@ngrx/store';
 import { ApiAuthInterceptor } from './helpers';
+import { newsReducer } from './store';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { ApiAuthInterceptor } from './helpers';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
+    StoreModule.forRoot({ news: newsReducer }),
     MatToolbarModule
   ],
   providers: [

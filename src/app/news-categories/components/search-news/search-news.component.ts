@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { NewsResponse, SearchResponse } from 'src/app/models';
 import { AuthenticationService, NewsService, SnackbarService } from 'src/app/services';
 
@@ -23,7 +24,8 @@ export class SearchNewsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private newsService: NewsService,
     private authenticationService: AuthenticationService,
-    private snackbarService: SnackbarService) { }
+    private snackbarService: SnackbarService,
+    private store: Store<{news: NewsResponse}>) { }
 
   ngOnInit(): void {
     const savedHistory = localStorage.getItem(`${this.authenticationService.currentUserValue.email}_search_history`);
@@ -57,6 +59,7 @@ export class SearchNewsComponent implements OnInit {
             }
           })
         }
+        this.store.dispatch({type: 'Update', payload: this.searchedResults});
       }
     });
   }

@@ -39,8 +39,6 @@ export class ApiAuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       finalize(() => this.loaderService.hide()),
     ).pipe(catchError(err => {
-      console.log('hereee');
-      console.log(err);
       const error = err.error.message || err.statusText;
       if (err.status === 401) {
         this.snackBarService.open(error);

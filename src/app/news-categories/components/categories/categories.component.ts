@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { first, pipe } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { NewsResponse } from 'src/app/models';
 import { NewsService } from 'src/app/services/news.service';
 
@@ -11,14 +11,14 @@ import { NewsService } from 'src/app/services/news.service';
 export class CategoriesComponent implements OnInit {
 
   selectedTab = 0;
-  newsResponse: NewsResponse;
 
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService,
+    private store: Store<{news: NewsResponse}>) { }
 
   ngOnInit(): void {
     setTimeout(() => {
       this.getTopNews('world');
-    }, 0);
+    }, 100);
   }
 
   switchTab(tabOrder: number) {
@@ -39,7 +39,7 @@ export class CategoriesComponent implements OnInit {
   getTopNews(category: string) {
      this.newsService.getTopStories(category).subscribe({
       next: (data: NewsResponse) => {
-        this.newsResponse = data;
+        this.store.dispatch({type: 'Update', payload: data});
       }
     });
   }
