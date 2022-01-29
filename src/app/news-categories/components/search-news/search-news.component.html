@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="input-container">
+        <form [formGroup]="searchForm" (ngSubmit)="searchNews()">
+            <mat-form-field appearance="fill">
+                <mat-label>Search</mat-label>
+                <input type="text" placeholder="Enter search text" aria-label="Search" matInput
+                    formControlName="searchText" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of serachHistory" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <button matSuffix mat-button type="submit">
+                <mat-icon>search</mat-icon>
+            </button>
+        </form>
+    </div>
+    <mat-paginator *ngIf="searchedResults && searchedResults.results.length" [length]="length" [pageSize]="pageSize"
+        hidePageSize="true" (page)="changePage($event)">
+    </mat-paginator>
+    <news-cards [data]="searchedResults" *ngIf="searchedResults && searchedResults.results.length"></news-cards>
+    <div *ngIf="submitted && !(searchedResults && searchedResults.results.length)" class="no-data">No results found
+    </div>
+</div>

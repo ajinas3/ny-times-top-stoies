@@ -6,12 +6,17 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 import { CategoriesComponent } from './components/categories';
 import { NewsCardsComponent } from './components/news-cards/news-cards.component';
 import { DetailedNewsComponent } from './components/detailed-news/detailed-news.component';
 import { MatButtonModule } from '@angular/material/button';
 import { NewsCommentsComponent } from './components/news-comments/news-comments.component';
+import { SearchNewsComponent } from './components/search-news/search-news.component';
 
 
 @NgModule({
@@ -19,7 +24,8 @@ import { NewsCommentsComponent } from './components/news-comments/news-comments.
     CategoriesComponent,
     NewsCardsComponent,
     DetailedNewsComponent,
-    NewsCommentsComponent
+    NewsCommentsComponent,
+    SearchNewsComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +34,10 @@ import { NewsCommentsComponent } from './components/news-comments/news-comments.
     MatDialogModule,
     MatButtonModule,
     MatPaginatorModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatIconModule,
     NewsCategoriesRoutingModule
   ]
 })

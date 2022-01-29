@@ -18,4 +18,8 @@ export class NewsService {
   getComments(newsUrl: string, offset: number) {
     return this.http.get<any>(`${this.baseUrl}/community/v3/user-content/url.json?offset=${offset}&url=${newsUrl}&`);
   }
+
+  searchNews(text: string, page: number) {
+    return this.http.get<any>(`${this.baseUrl}/search/v2/articlesearch.json?q=${text}&page=${page}&`);
+  }
 }
