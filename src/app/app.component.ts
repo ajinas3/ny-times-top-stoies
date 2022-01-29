@@ -22,6 +22,9 @@ export class AppComponent {
     })
   }
 
+  /**
+   * Initiate logout service
+   */
   logout() {
     this.authenticationService.logout();
   }

@@ -12,11 +12,22 @@ import { Store } from '@ngrx/store';
 export class SearchNewsComponent implements OnInit {
 
   searchedResults: NewsResponse;
-  page = 0;
   searchForm: FormGroup;
+
+  /**
+   * Search history intialised to empty and will update from localstorage
+   */
   serachHistory: string[] = [];
+
+  /**
+   * To show the no data label
+   */
   submitted = false;
 
+  /**
+   * Variables used for paginator configuration
+   */
+  page = 0;
   length = 1000;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -27,6 +38,9 @@ export class SearchNewsComponent implements OnInit {
     private snackbarService: SnackbarService,
     private store: Store<{ news: NewsResponse }>) { }
 
+  /**
+   * Initialise the form and update the search history arrya from localstorage
+   */
   ngOnInit(): void {
     const savedHistory = localStorage.getItem(`${this.authenticationService.currentUserValue.email}_search_history`);
     this.serachHistory = savedHistory ? JSON.parse(savedHistory) : [];
@@ -35,6 +49,10 @@ export class SearchNewsComponent implements OnInit {
     });
   }
 
+  /**
+   * Function to search an article and map the response to the detailed news structure
+   * @returns empty if the search text is empty
+   */
   searchNews() {
     const searchedText = this.searchForm.controls['searchText'].value;
     if (!searchedText) {
@@ -45,6 +63,8 @@ export class SearchNewsComponent implements OnInit {
     this.newsService.searchNews(searchedText, this.page).subscribe({
       next: (data: SearchResponse) => {
         this.submitted = true;
+
+        // To map the response data to detailed news type
         this.searchedResults = {
           copyright: data.copyright,
           status: data.status,
@@ -64,6 +84,10 @@ export class SearchNewsComponent implements OnInit {
     });
   }
 
+  /**
+   * To save and updated the searched text
+   * @param text The new searched text
+   */
   saveSearchedText(text: string) {
     const index = this.serachHistory.indexOf(text);
     if (index > -1) {
@@ -76,6 +100,10 @@ export class SearchNewsComponent implements OnInit {
     localStorage.setItem(`${this.authenticationService.currentUserValue.email}_search_history`, JSON.stringify(this.serachHistory));
   }
 
+  /**
+   * Function to handle the pagination
+   * @param event The page number
+   */
   changePage(event) {
     this.page = event.pageIndex;
     this.searchNews();

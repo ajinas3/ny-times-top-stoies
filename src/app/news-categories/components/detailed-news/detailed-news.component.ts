@@ -9,6 +9,9 @@ import { News } from '@core/models';
 })
 export class DetailedNewsComponent implements OnInit {
 
+  /**
+   * The component supports two type of views - News and Comments
+   */
   commentsView = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: News) { }

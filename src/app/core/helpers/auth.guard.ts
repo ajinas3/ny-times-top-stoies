@@ -11,6 +11,13 @@ export class AuthGuard implements CanActivate {
     private router: Router,
     private authenticationService: AuthenticationService
 ) {}
+
+  /**
+   * Helper to authenticate the UI routes
+   * @param route The activated route snapshot
+   * @param state The router snapshot
+   * @returns {boolean} the permission to activate the route
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

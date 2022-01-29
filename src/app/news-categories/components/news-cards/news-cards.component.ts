@@ -21,12 +21,19 @@ export class NewsCardsComponent implements OnInit, OnDestroy {
     this.data$ = store.select('news');
   }
 
+  /**
+   * To subscribe the store data
+   */
   ngOnInit(): void {
     this.dataSubscription = this.data$.subscribe((newsList: NewsResponse) => {
       this.data = newsList;
     });
   }
 
+  /**
+   * To show the news details
+   * @param news The selected news to display
+   */
   showDetails(news: News) {
     this.dialog.open(DetailedNewsComponent, {
       data: news,
@@ -34,6 +41,9 @@ export class NewsCardsComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * To unsubscribe the store subscription
+   */
   ngOnDestroy(): void {
     this.dataSubscription.unsubscribe();
   }

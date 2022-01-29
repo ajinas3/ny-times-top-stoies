@@ -19,8 +19,16 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService
-  ) {}
+  ) {
+    // redirect to home if already logged in
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/news-categories']);
+    }
+  }
 
+  /**
+   * Initialising the form
+   */
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -28,11 +36,16 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // convenience getter for easy access to form fields
+  /**
+   * Convenience getter for easy access to form fields
+   */
   get f() { return this.loginForm.controls; }
 
+  /**
+   * Submit the user credentials to login
+   * @returns empty if the form is invalid
+   */
   onSubmit() {
-
     this.submitted = true;
 
     // stop here if form is invalid

@@ -27,7 +27,13 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
-  login(email, password) {
+  /**
+   * Calls the API server to fetch the user token
+   * @param email Email of the user
+   * @param password Password of the user
+   * @returns {string} Token that will be used for further process
+   */
+  login(email: string, password: string) {
     return this.http.post<any>(`${this.baseUrl}/login`, { email, password })
       .pipe(map(token => {
         this.saveUserDetails({...token, email});
@@ -35,14 +41,22 @@ export class AuthenticationService {
       }));
   }
 
+  /**
+   * Logouts the user and removes token from localstorage
+   */
   logout() {
-    // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.router.navigate(['']);
   }
 
-  register(email, password) {
+  /**
+   * Register a new user to the server
+   * @param email Email of the user
+   * @param password Password of the user 
+   * @returns {string} Token that will be used for further process
+   */
+  register(email: string, password: string) {
     return this.http.post<any>(`${this.baseUrl}/register`, { email, password })
       .pipe(map(token => {
         this.saveUserDetails({...token, email});
@@ -50,6 +64,10 @@ export class AuthenticationService {
       }));
   }
 
+  /**
+   * Utility function to save token to the localstorage
+   * @param user User model
+   */
   saveUserDetails(user: User) {
     // store user details and jwt token in local storage to keep user logged in between page refreshes
     localStorage.setItem('currentUser', JSON.stringify(user));

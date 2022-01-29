@@ -18,14 +18,18 @@ export class NewsCommentsComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
+  /**
+   * Update the comments, API not added as facing the CORS issue
+   * Currently displaying the static comments saved as constants
+   */
   ngOnChanges(): void {
     // not able to fetch data from API due to CORS issue
 
-      // this.newsService.getComments(this.url, 0).subscribe({
-      //   next: (data) => {
-      //     console.log(data)
-      //   }
-      // });
+    // this.newsService.getComments(this.url, 0).subscribe({
+    //   next: (data) => {
+    //     console.log(data)
+    //   }
+    // });
 
     // Displaying static comments
     this.data = COMMENTS;

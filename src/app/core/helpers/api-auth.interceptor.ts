@@ -22,7 +22,14 @@ export class ApiAuthInterceptor implements HttpInterceptor {
     private router: Router,
     private authenticationService: AuthenticationService) { }
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  /**
+   * HTTP interceptor to intercept the HTTP calls, add api-key to the
+   * request, show/hide the loader and catch API error
+   * @param request API request
+   * @param next API request handler
+   * @returns API response or the error object
+   */
+    intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.loaderService.show();
 
     if (request.url.includes(this.newsBaseUrl)) {
