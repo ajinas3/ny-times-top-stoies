@@ -5,7 +5,7 @@ import { AuthenticationService, NewsService, SnackbarService } from '@core/servi
 import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'search-news',
+  selector: 'app-search-news',
   templateUrl: './search-news.component.html',
   styleUrls: ['./search-news.component.scss']
 })

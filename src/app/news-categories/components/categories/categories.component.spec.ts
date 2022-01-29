@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
 
 import { CategoriesComponent } from './categories.component';
 
@@ -8,7 +10,8 @@ describe('CategoriesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoriesComponent ]
+      declarations: [ CategoriesComponent ],
+      imports: [HttpClientTestingModule, StoreModule.forRoot({})]
     })
     .compileComponents();
   });

@@ -4,7 +4,7 @@ import { NewsService } from '@core/services';
 import { Comment } from '@core/models';
 
 @Component({
-  selector: 'news-comments',
+  selector: 'app-news-comments',
   templateUrl: './news-comments.component.html',
   styleUrls: ['./news-comments.component.scss']
 })

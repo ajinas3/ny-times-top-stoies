@@ -6,7 +6,7 @@ import { Observable, Subscription } from 'rxjs';
 import { DetailedNewsComponent } from '../detailed-news';
 
 @Component({
-  selector: 'news-cards',
+  selector: 'app-news-cards',
   templateUrl: './news-cards.component.html',
   styleUrls: ['./news-cards.component.scss']
 })

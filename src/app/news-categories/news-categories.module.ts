@@ -9,6 +9,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 
 import { CategoriesComponent } from './components/categories';
@@ -36,6 +37,7 @@ import { SearchNewsComponent } from './components/search-news/search-news.compon
     MatPaginatorModule,
     MatAutocompleteModule,
     MatInputModule,
+    MatFormFieldModule,
     ReactiveFormsModule,
     MatIconModule,
     NewsCategoriesRoutingModule

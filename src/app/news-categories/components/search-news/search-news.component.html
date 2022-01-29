@@ -26,7 +26,7 @@
     hidePageSize="true" (page)="changePage($event)">
   </mat-paginator>
 
-  <news-cards *ngIf="searchedResults && searchedResults.results.length"></news-cards>
+  <app-news-cards *ngIf="searchedResults && searchedResults.results.length"></app-news-cards>
 
   <div *ngIf="submitted && !(searchedResults && searchedResults.results.length)" class="no-data">No results found
   </div>
