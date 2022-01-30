@@ -37,6 +37,7 @@ export class NewsCardsComponent implements OnInit, OnDestroy {
   showDetails(news: News) {
     this.dialog.open(DetailedNewsComponent, {
       data: news,
+      maxHeight: 'calc(100vh - 20px)',
       disableClose: true
     });
   }
