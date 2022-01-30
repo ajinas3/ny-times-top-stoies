@@ -14,7 +14,7 @@ Package Manager: `npm 7.24.0`
 
 ## Steps to run the code
 
-1. Clone and serve the local servee using the repo: `https://github.com/techiediaries/fake-api-jwt-json-server`
+1. Clone and serve the local auth server using the repo: `https://github.com/techiediaries/fake-api-jwt-json-server`
     1. `git clone https://github.com/techiediaries/fake-api-jwt-json-server.git`
     2. `npm install`
     3. `npm audit fix`
